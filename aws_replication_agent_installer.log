@@ -1,0 +1,72 @@
+2024-01-28 12:19:31,338 INFO       Installer called with the following switches: [{'region': 'us-east-2'}]          [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:19:31,343 INFO       Starting installer                                                               [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d, is_windows: True]
+2024-01-28 12:19:31,343 INFO       The installation of the AWS Replication Agent has started                        [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:19:33,510 INFO       calling get_agent_installation_assets_for_mgn                                    [agent_version: e43a2757020ff7b4bb56e9d4e4fb77e138e6392b, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d, architecture: AMD64, os_name: WINDOWS, os_release: 10, os_version: 10.0.22631, dist_name: None, dist_version: None, dist_codename: None]
+2024-01-28 12:19:33,510 ERROR      Either not on EC2 or No instance profile attached to instance                   
+Traceback (most recent call last):
+  File "cirrus\installer_shared\installer_main.py", line 887, in create_mgn_instance_profile_client
+  File "cirrus\client_utils\service_facade.py", line 379, in get_agent_installation_assets
+  File "botocore\client.py", line 508, in _api_call
+  File "botocore\client.py", line 898, in _make_api_call
+  File "botocore\client.py", line 921, in _make_request
+  File "botocore\endpoint.py", line 119, in make_request
+  File "botocore\endpoint.py", line 198, in _send_request
+  File "botocore\endpoint.py", line 134, in create_request
+  File "botocore\hooks.py", line 412, in emit
+  File "botocore\hooks.py", line 256, in emit
+  File "botocore\hooks.py", line 239, in _emit
+  File "botocore\signers.py", line 103, in handler
+  File "botocore\signers.py", line 187, in sign
+  File "botocore\auth.py", line 407, in add_auth
+botocore.exceptions.NoCredentialsError: Unable to locate credentials [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:24:34,280 INFO       Verifying that the source server has enough free disk space to install the AWS Replication Agent (a minimum of 2 GB of free disk space is required). [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:24:34,280 INFO       detecting server id info                                                         [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:24:42,461 INFO       Cannot connect to magic IP, assuming this is not Google                          [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:24:42,521 ERROR      failed to extract vm uuid from dmidecode serial number                          
+Traceback (most recent call last):
+  File "shared\installer_utils\server_identity_utils.py", line 313, in get_vcenter_instance_id
+  File "shared\installer_utils\server_identity_utils.py", line 326, in extract_vmuuid_from_vmware_serial_number_line
+Exception: vmware- prefix is absent from vmware serial number line 0aq59qbwb02214p [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:24:42,550 INFO       got machine hardware addresses [HwAddress(windll//79516041821054/non-unique/non-virtual), HwAddress(Conex∆o Local* 1/48:51:c5:6d:3b:7b/79516041821051/unique/non-virtual), HwAddress(Conex∆o Local* 2/4a:51:c5:6d:3b:7a/81715065076602/non-unique/non-virtual), HwAddress(Wi-Fi/48:51:c5:6d:3b:7a/79516041821050/unique/non-virtual), HwAddress(Conex∆o de Rede Bluetooth/48:51:c5:6d:3b:7e/79516041821054/unique/non-virtual), HwAddress(Ethernet/8c:b0:e9:bf:a9:8d/154691463784845/unique/non-virtual)] [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d]
+2024-01-28 12:24:42,554 INFO       got server id info AWS:none/VMWARE:none/MAC:['79516041821051', '79516041821050', '79516041821054', '154691463784845', '79516041821054', '81715065076602']/GOOGLE:none/USER_PROVIDED_ID:none [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d, mac_addresses: 79516041821051,79516041821050,79516041821054,154691463784845,79516041821054,81715065076602, _origin_client_type: installer]
+2024-01-28 12:24:43,061 INFO       
+Failed to validate AWS credentials
+Installation failed.
+Learn more about installation issues in our documentation at https://docs.aws.amazon.com/mgn/latest/ug/Troubleshooting-Agent-Issues.html#Error-Installation-Failed [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d, mac_addresses: 79516041821051,79516041821050,79516041821054,154691463784845,79516041821054,81715065076602, _origin_client_type: installer]
+2024-01-28 12:24:43,061 ERROR      Installation was not finished successfully                                      
+Traceback (most recent call last):
+  File "cirrus\installer_shared\installer_main.py", line 1076, in _main
+  File "cirrus\installer_shared\installer_main.py", line 945, in main
+  File "cirrus\installer_shared\installer_main.py", line 764, in install
+  File "cirrus\installer_shared\installer_main.py", line 822, in verify_nile_permissions_exist
+  File "cirrus\installer_shared\installer_main.py", line 805, in check_necessary_nile_permissions
+  File "botocore\client.py", line 508, in _api_call
+  File "botocore\client.py", line 915, in _make_api_call
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the VerifyClientRoleForMgn operation: The security token included in the request is invalid. [agent_version: 5.22.0.2024.015.1138, installation_id: 5d828dac-51b1-45bf-841b-e5be4823f64d, mac_addresses: 79516041821051,79516041821050,79516041821054,154691463784845,79516041821054,81715065076602, _origin_client_type: installer]
+2024-01-28 12:28:59,372 INFO       Installer called with the following switches: [{'aws_access_key_id': '****', 'region': 'us-east-2'}] [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:28:59,372 INFO       Starting installer                                                               [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758, is_windows: True]
+2024-01-28 12:28:59,372 INFO       The installation of the AWS Replication Agent has started                        [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:29:24,592 INFO       Verifying that the source server has enough free disk space to install the AWS Replication Agent (a minimum of 2 GB of free disk space is required). [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:29:24,592 INFO       detecting server id info                                                         [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:29:32,730 INFO       Cannot connect to magic IP, assuming this is not Google                          [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:29:32,772 ERROR      failed to extract vm uuid from dmidecode serial number                          
+Traceback (most recent call last):
+  File "shared\installer_utils\server_identity_utils.py", line 313, in get_vcenter_instance_id
+  File "shared\installer_utils\server_identity_utils.py", line 326, in extract_vmuuid_from_vmware_serial_number_line
+Exception: vmware- prefix is absent from vmware serial number line 0aq59qbwb02214p [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:29:32,782 INFO       got machine hardware addresses [HwAddress(windll//79516041821054/non-unique/non-virtual), HwAddress(Conex∆o Local* 1/48:51:c5:6d:3b:7b/79516041821051/unique/non-virtual), HwAddress(Conex∆o Local* 2/4a:51:c5:6d:3b:7a/81715065076602/non-unique/non-virtual), HwAddress(Wi-Fi/48:51:c5:6d:3b:7a/79516041821050/unique/non-virtual), HwAddress(Conex∆o de Rede Bluetooth/48:51:c5:6d:3b:7e/79516041821054/unique/non-virtual), HwAddress(Ethernet/8c:b0:e9:bf:a9:8d/154691463784845/unique/non-virtual)] [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758]
+2024-01-28 12:29:32,782 INFO       got server id info AWS:none/VMWARE:none/MAC:['79516041821051', '79516041821050', '79516041821054', '154691463784845', '79516041821054', '81715065076602']/GOOGLE:none/USER_PROVIDED_ID:none [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758, mac_addresses: 79516041821051,79516041821050,79516041821054,154691463784845,79516041821054,81715065076602, _origin_client_type: installer]
+2024-01-28 12:29:33,588 INFO       
+Failed to validate AWS credentials
+Installation failed.
+Learn more about installation issues in our documentation at https://docs.aws.amazon.com/mgn/latest/ug/Troubleshooting-Agent-Issues.html#Error-Installation-Failed [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758, mac_addresses: 79516041821051,79516041821050,79516041821054,154691463784845,79516041821054,81715065076602, _origin_client_type: installer]
+2024-01-28 12:29:33,588 ERROR      Installation was not finished successfully                                      
+Traceback (most recent call last):
+  File "cirrus\installer_shared\installer_main.py", line 1076, in _main
+  File "cirrus\installer_shared\installer_main.py", line 945, in main
+  File "cirrus\installer_shared\installer_main.py", line 764, in install
+  File "cirrus\installer_shared\installer_main.py", line 822, in verify_nile_permissions_exist
+  File "cirrus\installer_shared\installer_main.py", line 805, in check_necessary_nile_permissions
+  File "botocore\client.py", line 508, in _api_call
+  File "botocore\client.py", line 915, in _make_api_call
+botocore.exceptions.ClientError: An error occurred (UnrecognizedClientException) when calling the VerifyClientRoleForMgn operation: The security token included in the request is invalid. [agent_version: 5.22.0.2024.015.1138, installation_id: dff90eb5-499a-427a-8676-3bcc9f5bf758, mac_addresses: 79516041821051,79516041821050,79516041821054,154691463784845,79516041821054,81715065076602, _origin_client_type: installer]
